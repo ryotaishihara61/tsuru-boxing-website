@@ -1,24 +1,24 @@
 const express = require('express');
-const path = require('path'); // ★ 1. この行を追加
+const path = require('path');
 const app = express();
 const port = 3000;
 
 // EJSをテンプレートエンジンとして設定
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views')); // ★ 2. この行を追加
+app.set('views', path.join(__dirname, 'views'));
 
 // 'public' フォルダを静的ファイル（画像など）の置き場所として指定
-app.use(express.static('public'));
+// ▼▼▼ この行を修正します ▼▼▼
+app.use(express.static(path.join(__dirname, 'public')));
+// ▲▲▲ この行を修正します ▲▲▲
 
 // --- データ部分は変更なし ---
 const siteData = {
   title: "Tsuru's Boxing Chronicle",
   videos: [
-    { youtubeId: 'xIXFlVPQ0kM', title: '1st lesson, March 2023' },
     { youtubeId: 'C2WJHLfwbco', title: '31-May, 2025' },
     { youtubeId: 'moimgg-zsfU', title: '6-June, 2025' },
   ],
-  // photos: [ ... ] // 非表示のまま
 };
 
 // --- ここから下も変更なし ---
