@@ -16,6 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const siteData = {
   title: "Tsuru's Boxing Chronicle",
   videos: [
+    { youtubeId: 'xIXFlVPQ0kM', title: '1st-lesson, Mar 2023' },
     { youtubeId: 'C2WJHLfwbco', title: '31-May, 2025' },
     { youtubeId: 'moimgg-zsfU', title: '6-June, 2025' },
   ],
