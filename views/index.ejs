@@ -12,7 +12,6 @@
   <link rel="icon" href="/icon.png" type="image/png">
 
   <style>
-    /* ページの基本スタイル */
     :root {
       --primary-color: #1a237e;
       --card-bg-color: #ffffff;
@@ -28,8 +27,6 @@
       color: var(--text-color);
       background-color: var(--body-bg-color);
     }
-
-    /* ヘッダー */
     .header {
       background-color: var(--card-bg-color);
       padding: 0 2em;
@@ -64,25 +61,11 @@
     .header .nav-links a:hover {
       background-color: var(--body-bg-color);
     }
-
-    /* コンテンツのコンテナ */
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 2em;
     }
-
-    /* メインタイトル */
-    h1 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 3rem;
-      text-align: center;
-      color: var(--primary-color);
-      margin-bottom: 0.5em;
-      letter-spacing: 2px;
-    }
-
-    /* セクションタイトル */
     .section-header {
       text-align: center;
       padding-top: 4em;
@@ -98,15 +81,11 @@
       padding-bottom: 0.3em;
       display: inline-block;
     }
-
-    /* カードグリッド */
     .card-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
         gap: 30px;
     }
-
-    /* ビデオカード */
     .video-card {
         background-color: var(--card-bg-color);
         border-radius: 12px;
@@ -133,8 +112,6 @@
         height: 100%;
         border: none;
     }
-
-    /* リンクカード */
     .link-card {
       background-color: var(--card-bg-color);
       border-radius: 12px;
@@ -155,7 +132,7 @@
       object-fit: cover;
       border-top-left-radius: 12px;
       border-top-right-radius: 12px;
-      background-color: #eee; /* 画像がない場合に備える */
+      background-color: #eee;
     }
     .link-card-content {
       padding: 1rem 1.2rem;
@@ -170,8 +147,40 @@
       margin: 0;
       opacity: 0.8;
     }
-    
-    /* フッター */
+    .p4p-link-section {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/ring_background.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 4em 2em;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 2em;
+    }
+    .p4p-link-section h2 { /* p4pセクション内のh2は継承しないようにリセット */
+      margin: 0;
+      padding: 0;
+      border: none;
+      display: block;
+    }
+    .p4p-link-section p {
+      color: #eee;
+      font-size: 1.1rem;
+    }
+    .p4p-link-section .btn-link {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: #ffffff;
+      padding: 0.8em 1.5em;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 8px;
+      margin-top: 1em;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+    .p4p-link-section .btn-link:hover {
+      background-color: #283593;
+      transform: scale(1.05);
+    }
     .footer {
       background-color: #333;
       color: #fff;
@@ -189,6 +198,7 @@
       <ul class="nav-links">
         <li><a href="#match-videos">MATCH VIDEOS</a></li>
         <li><a href="#inspiration">INSPIRATION</a></li>
+        <li><a href="#p4p-rankings">P4P RANKING</a></li>
       </ul>
     </nav>
   </header>
@@ -203,17 +213,11 @@
         <div class="video-card">
           <h3><%= video.title %></h3>
           <div class="video-player">
-            <iframe
-              src="https://www.youtube.com/embed/<%= video.youtubeId %>"
-              title="<%= video.title %>"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
+            <iframe src="https://www.youtube.com/embed/<%= video.youtubeId %>" title="<%= video.title %>" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       <% }) %>
     </div>
-
 
     <div id="inspiration" class="section-header">
       <h2>INSPIRATION & HIGHLIGHTS</h2>
@@ -221,15 +225,23 @@
     <div class="card-grid">
       <% inspirationLinks.forEach(link => { %>
         <a href="<%= link.url %>" target="_blank" rel="noopener noreferrer" class="link-card">
-          
           <img src="<%= link.thumbnail %>" alt="" class="link-card-thumbnail">
-          
           <div class="link-card-content">
             <h3><%= link.title %></h3>
             <p><%= link.description %></p>
           </div>
         </a>
       <% }) %>
+    </div>
+
+    <div id="p4p-rankings" class="section-header">
+      <h2>THE RING POUND-FOR-POUND</h2>
+    </div>
+    <div class="p4p-link-section">
+      <p>The most prestigious rankings in boxing.<br>Check out the best fighters in the world today.</p>
+      <a href="https://ringmagazine.com/en/pound-for-pound/men" target="_blank" rel="noopener noreferrer" class="btn-link">
+        View Latest Rankings on Official Site
+      </a>
     </div>
     </div>
 
