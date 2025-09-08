@@ -20,6 +20,7 @@ const siteData = {
     { youtubeId: 'CZbnSy9_k1o', title: '8-August, 2025' },
     { youtubeId: 'KAhIIs8FhXE', title: '15-August, 2025' },
     { youtubeId: 'PT4NhjJCKGE', title: '29-August, 2025' },
+    { youtubeId: 'eLHbxvYljt0', title: '5-September, 2025' },
   ],
   // ▼▼▼ inspirationLinks を手動で設定します ▼▼▼
   inspirationLinks: [
