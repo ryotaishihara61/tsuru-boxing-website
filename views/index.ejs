@@ -212,6 +212,27 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
     }
+    .video-card.special {
+        border: 2px solid var(--accent-color);
+        background: linear-gradient(135deg, rgba(26, 26, 26, 1) 0%, rgba(40, 20, 0, 0.3) 100%);
+    }
+    .video-card.special::before {
+        background: linear-gradient(90deg, var(--accent-color) 0%, var(--primary-color) 100%);
+        opacity: 1;
+        height: 3px;
+    }
+    .video-card.special h3 {
+        background: linear-gradient(135deg, var(--accent-color) 0%, #ffed4e 50%, var(--accent-color) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        position: relative;
+    }
+    .video-card.special:hover {
+        box-shadow: 0 8px 20px rgba(0,0,0,0.4), 0 0 40px rgba(255, 215, 0, 0.4);
+        border-color: var(--accent-color);
+    }
     .video-player {
         width: 100%;
         aspect-ratio: 16 / 9;
@@ -376,7 +397,7 @@
     </div>
     <div class="card-grid">
       <% videos.forEach(video => { %>
-        <div class="video-card">
+        <div class="video-card <%= video.title.includes('【Special】') ? 'special' : '' %>">
           <h3><%= video.title %></h3>
           <div class="video-player">
             <iframe src="https://www.youtube.com/embed/<%= video.youtubeId %>" title="<%= video.title %>" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
